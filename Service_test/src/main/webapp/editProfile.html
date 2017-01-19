@@ -1,0 +1,65 @@
+<style>
+.error {
+	color: red;
+	font-size: 12px
+}
+</style>
+<div class="container" ng-controller="editCtrl">
+	<div class="row" style="width: 100%">
+		<h2 style="color: #0e7aa7; margin-left: 33%;">Employee
+			Registration Form</h2>
+		<br>
+		<div>
+			<form ng-submit="submitForm()" name="employeeForm" novalidate>
+				<div class="form-group">
+					<label for="name">Name:</label> <input type="text"
+						class="form-control" placeholder="Enter name" id="name"
+						name="name" ng-model="employee.name" required name-error>
+					<span
+						ng-show="employeeForm.name.$error.required && employeeForm.name.$dirty"
+						class="error"> This field is mandatory </span> <br
+						ng-show="employeeForm.name.$error.required && employeeForm.name.$dirty">
+					<span class="error"
+						ng-show="employeeForm.name.$error.nameError && employeeForm.name.$dirty">
+						Name should not contain any digits or special characters </span>
+				</div>
+				<div class="form-group">
+					<label for="date">Date of Joining:</label> <input type="date"
+						class="form-control" placeholder="Enter date of joining"
+						ng-model="employee.date" required> <span
+						ng-show="employeeForm.date.$error.required && employeeForm.date.$dirty"
+						class="error"> This field is mandatory </span>
+				</div>
+				<div class="form-group">
+					<label for="email">Email:</label> <input type="email"
+						class="form-control" placeholder="Enter email" name="email"
+						id="email" ng-model="employee.email" required email-error>
+					<span
+						ng-show="employeeForm.email.$error.required && employeeForm.email.$dirty"
+						class="error"> This field is mandatory </span> <br
+						ng-show="employeeForm.email.$error.required && employeeForm.email.$dirty">
+					<span
+						ng-show="employeeForm.email.$error.emailError && employeeForm.email.$dirty"
+						class="error"> Please input correct email format </span>
+				</div>
+				<div class="form-group">
+					<label for="contact">Phone Number:</label> <input type="text"
+						class="form-control" placeholder="Enter contact number"
+						name="contact" id="contact" ng-model="employee.contact"
+						contact-error> <span
+						ng-show="employeeForm.contact.$error.contactError && employeeForm.contact.$dirty"
+						class="error"> Contact contains 10 digits </span>
+				</div>
+				<br> <br>
+				<button type="submit" id="sbt" class="btn btn-primary form-control"
+					ng-disabled="employeeForm.$invalid">Submit</button>
+			</form>
+		</div>
+		<div class="col-sm-2"></div>
+	</div>
+</div>
+
+
+
+
+
